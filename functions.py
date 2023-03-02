@@ -45,4 +45,4 @@ def function3(puzzle):
         return True
     else:
         return False
-    pass
+
