@@ -26,9 +26,9 @@ def function1(puzzle):
     if puzzle.index(0) > 2 :
         available_move.append('^')
     if puzzle.index(0) % 3 != 0 :
-        available_move.append('<')  
+        available_move.append('>')  
     if puzzle.index(0) % 3 != 2 :
-        available_move.append('>')
+        available_move.append('<')
     return available_move
     """
 
