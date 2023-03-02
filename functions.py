@@ -19,6 +19,19 @@ def function1(puzzle):
     elif puzzle.index(0) == 8:
         return ['>', 'v']
 
+    """
+    available_move = []
+    if puzzle.index(0) < 6 :
+        available_move.append('v')
+    if puzzle.index(0) > 2 :
+        available_move.append('^')
+    if puzzle.index(0) % 3 != 0 :
+        available_move.append('<')  
+    if puzzle.index(0) % 3 != 2 :
+        available_move.append('>')
+    return available_move
+    """
+
 
 def function2(selected_move, puzzle):
     # apply the action to the given state and return the new state
