@@ -47,11 +47,11 @@ def function2(selected_move, puzzle):
         puzzle[index] = puzzle[index + 1]
         puzzle[index + 1] = 0
 
-    elif selected_move == '^':
+    elif selected_move == 'v':
         puzzle[index] = puzzle[index - 3]
         puzzle[index - 3] = 0
 
-    elif selected_move == 'v':
+    elif selected_move == '^':
         puzzle[index] = puzzle[index + 3]
         puzzle[index + 3] = 0
 
