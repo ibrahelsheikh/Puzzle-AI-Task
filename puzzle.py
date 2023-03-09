@@ -33,19 +33,19 @@ def print_puzzle(puzzle):
 def human_play(puzzle):
     while True:
         print_puzzle(puzzle)
-        available_move = function1(puzzle)
+        available_move = available_movement(puzzle)
         print('available_move: ', available_move)
         selected_move = input('Select a move: ')
         if selected_move not in available_move:
             print('Game Over');
             break
 
-        puzzle = function2(selected_move, puzzle)
-        if function3(puzzle):
+        puzzle = apply_move(selected_move, puzzle)
+        if check_final_state(puzzle):
             print('You Win');
             break
 
-    puzzle = function2(puzzle, selected_move)
+    puzzle = apply_move(puzzle, selected_move)
     print_puzzle(puzzle)
 
 

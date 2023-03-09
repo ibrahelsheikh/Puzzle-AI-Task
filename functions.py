@@ -1,4 +1,4 @@
-def function1(puzzle):
+def available_movement(puzzle):
     # return all the possible actions in given state (puzzle)
     if puzzle.index(0) == 0:
         return ['>', 'v']
@@ -33,7 +33,7 @@ def function1(puzzle):
      """
 
 
-def function2(selected_move, puzzle):
+def apply_move(selected_move, puzzle):
     # apply the action to the given state and return the new state
 
     # find index of zero in list
@@ -58,7 +58,7 @@ def function2(selected_move, puzzle):
     return puzzle
 
 
-def function3(puzzle):
+def check_final_state(puzzle):
     # if puzzle is solved (in the correct order) return True, otherwise return False
     if puzzle == [0, 1, 2, 3, 4, 5, 6, 7, 8]:
         return True
