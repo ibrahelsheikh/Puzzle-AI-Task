@@ -64,3 +64,4 @@ def check_final_state(puzzle):
         return True
     else:
         return False
+
