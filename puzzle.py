@@ -42,6 +42,7 @@ def human_play(puzzle):
 
         puzzle = apply_move(selected_move, puzzle)
         if check_final_state(puzzle):
+            print_puzzle(puzzle)
             print('You Win');
             break
 
