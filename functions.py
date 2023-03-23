@@ -1,4 +1,4 @@
-def available_movement(puzzle):
+def get_actions(puzzle):
     # return all the possible actions in given state (puzzle)
     if puzzle.index(0) == 0:
         return ['>', 'v']
@@ -33,7 +33,7 @@ def available_movement(puzzle):
      """
 
 
-def apply_move(selected_move, puzzle):
+def get_state(selected_move, puzzle):
     # apply the action to the given state and return the new state
 
     # find index of zero in list
