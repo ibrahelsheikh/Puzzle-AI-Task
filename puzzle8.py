@@ -42,12 +42,16 @@ def shuffle_puzzle(N):
 
 
 if __name__ == '__main__':
-    puzzle = shuffle_puzzle(50)
-    print_puzzle(puzzle)
+    # puzzle = shuffle_puzzle(50)
+    # print_puzzle(puzzle)
     # use the implemented search strategies (DFS,BFS,UCS) to solve the puzzle
     # print the final solution and the number of expanded nodes for each strategy
     # for DFS use this puzzle [1, 0, 2, 6, 3, 5, 4, 7, 8]
-    puzzle = [1, 0, 2, 6, 3, 5, 4, 7, 8]
+    puzzle = [
+        3, 1, 2,
+        4, 0, 5,
+        6, 7, 8
+    ]
     strategy = 'DFS'
     agent = solve(strategy, puzzle)
     print(agent)
