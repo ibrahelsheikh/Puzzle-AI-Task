@@ -10,7 +10,7 @@ Puzzle8 Game
 """
 
 from random import randrange
-from functions import *
+from SearchAgent import *
 
 
 def print_puzzle(puzzle):
@@ -47,3 +47,14 @@ if __name__ == '__main__':
 # use the implemented search strategies (DFS,BFS,UCS) to solve the puzzle
 # print the final solution and the number of expanded nodes for each strategy
 # for DFS use this puzzle [1, 0, 2, 6, 3, 5, 4, 7, 8]
+# for BFS use this puzzle [1, 2, 0, 4, 5, 3, 7, 8, 6]
+# for UCS use this puzzle [1, 2, 3, 4, 5, 6, 8, 0, 7]
+    print('DFS')
+    agent = SearchAgent(puzzle, 'DFS')
+    agent.solve()
+    print('BFS')
+    agent = SearchAgent(puzzle, 'BFS')
+    agent.solve()
+    print('UCS')
+    agent = SearchAgent(puzzle, 'UCS')
+    agent.solve()
