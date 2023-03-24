@@ -72,3 +72,7 @@ def get_solution(strategy, current_node, time):
     if strategy == 'UCS':
         solution['cost'] = current_node['cost']
     return solution
+
+
+def compute_cost(action, param):
+    return 1

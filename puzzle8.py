@@ -44,17 +44,18 @@ def shuffle_puzzle(N):
 if __name__ == '__main__':
     puzzle = shuffle_puzzle(50)
     print_puzzle(puzzle)
-# use the implemented search strategies (DFS,BFS,UCS) to solve the puzzle
-# print the final solution and the number of expanded nodes for each strategy
-# for DFS use this puzzle [1, 0, 2, 6, 3, 5, 4, 7, 8]
-# for BFS use this puzzle [1, 2, 0, 4, 5, 3, 7, 8, 6]
-# for UCS use this puzzle [1, 2, 3, 4, 5, 6, 8, 0, 7]
-    print('DFS')
-    agent = SearchAgent(puzzle, 'DFS')
-    agent.solve()
-    print('BFS')
-    agent = SearchAgent(puzzle, 'BFS')
-    agent.solve()
-    print('UCS')
-    agent = SearchAgent(puzzle, 'UCS')
-    agent.solve()
+    # use the implemented search strategies (DFS,BFS,UCS) to solve the puzzle
+    # print the final solution and the number of expanded nodes for each strategy
+    # for DFS use this puzzle [1, 0, 2, 6, 3, 5, 4, 7, 8]
+    puzzle = [1, 0, 2, 6, 3, 5, 4, 7, 8]
+    strategy = 'DFS'
+    agent = solve(strategy, puzzle)
+    print(agent)
+
+    strategy = 'BFS'
+    agent = solve(strategy, puzzle)
+    print(agent)
+
+    strategy = 'UCS'
+    agent = solve(strategy, puzzle)
+    print(agent)

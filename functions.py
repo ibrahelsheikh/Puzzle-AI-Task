@@ -58,7 +58,7 @@ def get_state(selected_move, puzzle):
     return puzzle
 
 
-def check_final_state(puzzle):
+def isgoal(puzzle):
     # if puzzle is solved (in the correct order) return True, otherwise return False
     if puzzle == [0, 1, 2, 3, 4, 5, 6, 7, 8]:
         return True
