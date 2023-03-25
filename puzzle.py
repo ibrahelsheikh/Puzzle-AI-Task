@@ -64,3 +64,4 @@ if __name__ == '__main__':
     strategy = 'UCS'
     agent = solve(strategy, puzzle)
     print(strategy, agent)
+
