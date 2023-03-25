@@ -15,13 +15,14 @@ from functions import *
 
 
 def solve(strategy, intial_state):
-    fringe = [];
+    fringe = []
     visited = []
     initial_node = init_node(strategy, intial_state)
     fringe.append(initial_node)
     while len(fringe) > 0:
         current_node = fringe.pop(select_node(strategy, fringe))
-        if current_node['state'] in visited: continue
+        if current_node['state'] in visited:
+            continue
         visited.append(current_node['state'])
         # print(current_node['path']); #input()
         if isgoal(current_node['state']):

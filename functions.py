@@ -35,33 +35,30 @@ def get_actions(puzzle):
 
 def get_state(selected_move, puzzle):
     # apply the action to the given state and return the new state
+    puzzle_copy = puzzle[:]
 
     # find index of zero in list
-    index = puzzle.index(0)
+    index = puzzle_copy.index(0)
 
     if selected_move == '>':
-        puzzle[index] = puzzle[index + 1]
-        puzzle[index + 1] = 0
+        puzzle_copy[index] = puzzle_copy[index + 1]
+        puzzle_copy[index + 1] = 0
 
     elif selected_move == '<':
-        puzzle[index] = puzzle[index - 1]
-        puzzle[index - 1] = 0
+        puzzle_copy[index] = puzzle_copy[index - 1]
+        puzzle_copy[index - 1] = 0
 
     elif selected_move == 'v':
-        puzzle[index] = puzzle[index + 3]
-        puzzle[index + 3] = 0
+        puzzle_copy[index] = puzzle_copy[index + 3]
+        puzzle_copy[index + 3] = 0
 
     elif selected_move == '^':
-        puzzle[index] = puzzle[index - 3]
-        puzzle[index - 3] = 0
+        puzzle_copy[index] = puzzle_copy[index - 3]
+        puzzle_copy[index - 3] = 0
 
-    return puzzle
+    return puzzle_copy
 
 
 def isgoal(puzzle):
     # if puzzle is solved (in the correct order) return True, otherwise return False
-    if puzzle == [0, 1, 2, 3, 4, 5, 6, 7, 8]:
-        return True
-    else:
-        return False
-
+    return puzzle == [0, 1, 2, 3, 4, 5, 6, 7, 8]

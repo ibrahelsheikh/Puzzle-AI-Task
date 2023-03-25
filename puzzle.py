@@ -48,18 +48,19 @@ if __name__ == '__main__':
     # print the final solution and the number of expanded nodes for each strategy
     # for DFS use this puzzle [1, 0, 2, 6, 3, 5, 4, 7, 8]
     puzzle = [
-        3, 1, 2,
-        4, 0, 5,
-        6, 7, 8
+        1, 0, 2,
+        6, 3, 5,
+        4, 7, 8
     ]
-    strategy = 'DFS'
-    agent = solve(strategy, puzzle)
-    print(agent)
 
     strategy = 'BFS'
     agent = solve(strategy, puzzle)
-    print(agent)
+    print(strategy, agent)
+
+    strategy = 'DFS'
+    agent = solve(strategy, puzzle)
+    print(strategy, agent)
 
     strategy = 'UCS'
     agent = solve(strategy, puzzle)
-    print(agent)
+    print(strategy, agent)
