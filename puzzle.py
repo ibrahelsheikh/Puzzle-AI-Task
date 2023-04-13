@@ -41,6 +41,7 @@ def shuffle_puzzle(N):
     return puzzle
 
 
+
 if __name__ == '__main__':
     # puzzle = shuffle_puzzle(50)
     # print_puzzle(puzzle)
@@ -64,5 +65,3 @@ if __name__ == '__main__':
     strategy = 'DFS'
     agent = solve(strategy, puzzle)
     print(strategy, agent)
-
-

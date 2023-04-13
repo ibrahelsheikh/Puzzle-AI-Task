@@ -62,3 +62,10 @@ def get_state(selected_move, puzzle):
 def isgoal(puzzle):
     # if puzzle is solved (in the correct order) return True, otherwise return False
     return puzzle == [0, 1, 2, 3, 4, 5, 6, 7, 8]
+
+
+def compute_heuristic(puzzle):
+    count = 0
+    for i in range(len(puzzle)):
+        if puzzle[i] != i:
+            count += 1

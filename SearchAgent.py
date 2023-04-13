@@ -40,6 +40,7 @@ def select_node(strategy, fringe):
     if strategy == 'UCS': return get_min('cost', fringe)
 
 
+
 def get_min(key, fringe):
     idx_min = 0
     for i in range(1, len(fringe)):
@@ -54,15 +55,21 @@ def init_node(strategy, intial_state):
     initial_node['path'] = []
     if strategy == 'UCS': initial_node['cost'] = 0
     return initial_node
+    if strategy == 'Greedy':
+           initial_node['heuristic'] = compute_heuristic(intial_state)
+    if strategy == 'AStar':
+
 
 
 def add_node(strategy, current_node, action):
     next_node = {}
     next_node['state'] = get_state(action, current_node['state'])
-    next_node['path'] = current_node['path'][:];
+    next_node['path'] = current_node['path'][:]
     next_node['path'].append(action)
     if strategy == 'UCS':
         next_node['cost'] = current_node['cost'] + compute_cost(action, current_node['state'])
+
+
     return next_node
 
 
@@ -77,3 +84,7 @@ def get_solution(strategy, current_node, time):
 
 def compute_cost(action, param):
     return 1
+
+def get_path(path):
+    if len(path) == 0:return []
+    return get_path(path[0])+[path[1]]
