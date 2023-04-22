@@ -62,6 +62,10 @@ if __name__ == '__main__':
     agent = solve(strategy, puzzle)
     print(strategy, agent)
 
+    strategy = 'A*'
+    agent = solve(strategy, puzzle)
+    print(strategy, agent)
+
     strategy = 'DFS'
     agent = solve(strategy, puzzle)
     print(strategy, agent)

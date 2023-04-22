@@ -9,7 +9,7 @@ search(intial_state):
 		from state get possible actions
 		from actions generate next states
 		append successors to the fringe
-	return failure 
+	return failure
 """
 from functions import *
 
@@ -40,7 +40,6 @@ def select_node(strategy, fringe):
     if strategy == 'UCS': return get_min('cost', fringe)
 
 
-
 def get_min(key, fringe):
     idx_min = 0
     for i in range(1, len(fringe)):
@@ -56,9 +55,12 @@ def init_node(strategy, intial_state):
     if strategy == 'UCS': initial_node['cost'] = 0
     return initial_node
     if strategy == 'Greedy':
-           initial_node['heuristic'] = compute_heuristic(intial_state)
+        initial_node['heuristic'] = compute_heuristic(intial_state)
     if strategy == 'AStar':
-
+        next_node['cost'] = current_node['cost'] + compute_cost(action, current_node['state'])
+        frwrd_node['heuristic'] = compute_heuristic(intial_state)
+        next_node['f'] = next_node['cost'] + frwrd_cost
+    return initial_node
 
 
 def add_node(strategy, current_node, action):
@@ -68,7 +70,6 @@ def add_node(strategy, current_node, action):
     next_node['path'].append(action)
     if strategy == 'UCS':
         next_node['cost'] = current_node['cost'] + compute_cost(action, current_node['state'])
-
 
     return next_node
 
@@ -85,6 +86,13 @@ def get_solution(strategy, current_node, time):
 def compute_cost(action, param):
     return 1
 
+def compute_heuristic(puzzle):
+    count = 0
+    for i in range(len(puzzle)):
+        if puzzle[i] != i:count += 1
+    return count
+
+
 def get_path(path):
-    if len(path) == 0:return []
-    return get_path(path[0])+[path[1]]
+    if len(path) == 0: return []
+    return get_path(path[0]) + [path[1]]
