@@ -64,8 +64,12 @@ def isgoal(puzzle):
     return puzzle == [0, 1, 2, 3, 4, 5, 6, 7, 8]
 
 
+def compute_cost(action, param):
+    return 1
+
+
 def compute_heuristic(puzzle):
     count = 0
     for i in range(len(puzzle)):
-        if puzzle[i] != i:
-            count += 1
+        if puzzle[i] != i: count += 1
+    return count

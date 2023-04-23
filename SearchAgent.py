@@ -35,9 +35,11 @@ def solve(strategy, intial_state):
 
 
 def select_node(strategy, fringe):
-    if strategy == 'DFS': return -1
     if strategy == 'BFS': return 0
     if strategy == 'UCS': return get_min('cost', fringe)
+    if strategy == 'DFS': return -1
+    if strategy == 'Greedy': return get_min('heuristic', fringe)
+    if strategy == 'AStar': return get_min('f', fringe)
 
 
 def get_min(key, fringe):
@@ -57,8 +59,8 @@ def init_node(strategy, intial_state):
     if strategy == 'Greedy':
         initial_node['heuristic'] = compute_heuristic(intial_state)
     if strategy == 'AStar':
-        next_node['cost'] = current_node['cost'] + compute_cost(action, current_node['state'])
-        frwrd_node['heuristic'] = compute_heuristic(intial_state)
+        initial_node['cost'] = 0
+        frwrd_cost = compute_heuristic(intial_state)
         next_node['f'] = next_node['cost'] + frwrd_cost
     return initial_node
 
@@ -70,7 +72,12 @@ def add_node(strategy, current_node, action):
     next_node['path'].append(action)
     if strategy == 'UCS':
         next_node['cost'] = current_node['cost'] + compute_cost(action, current_node['state'])
-
+    if strategy == 'Greedy':
+        next_node['heuristic'] = compute_heuristic(next_node['state'])
+    if strategy == 'AStar':
+        next_node['cost'] = current_node['cost'] + compute_cost(action, current_node['state'])
+        frwrd_node['heuristic'] = compute_heuristic(next_node['state'])
+        next_node['f'] = next_node['cost'] + frwrd_cost
     return next_node
 
 
@@ -81,16 +88,6 @@ def get_solution(strategy, current_node, time):
     if strategy == 'UCS':
         solution['cost'] = current_node['cost']
     return solution
-
-
-def compute_cost(action, param):
-    return 1
-
-def compute_heuristic(puzzle):
-    count = 0
-    for i in range(len(puzzle)):
-        if puzzle[i] != i:count += 1
-    return count
 
 
 def get_path(path):

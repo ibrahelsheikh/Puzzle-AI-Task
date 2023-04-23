@@ -41,7 +41,6 @@ def shuffle_puzzle(N):
     return puzzle
 
 
-
 if __name__ == '__main__':
     # puzzle = shuffle_puzzle(50)
     # print_puzzle(puzzle)
@@ -49,9 +48,9 @@ if __name__ == '__main__':
     # print the final solution and the number of expanded nodes for each strategy
     # for DFS use this puzzle [1, 0, 2, 6, 3, 5, 4, 7, 8]
     puzzle = [
-        1, 0, 2,
-        6, 3, 5,
-        4, 7, 8
+        3, 1, 2,
+        0, 4, 5,
+        6, 7, 8
     ]
 
     strategy = 'BFS'
@@ -62,10 +61,14 @@ if __name__ == '__main__':
     agent = solve(strategy, puzzle)
     print(strategy, agent)
 
-    strategy = 'A*'
+    strategy = 'DFS'
     agent = solve(strategy, puzzle)
     print(strategy, agent)
 
-    strategy = 'DFS'
+    strategy = 'Greedy'
+    agent = solve(strategy, puzzle)
+    print(strategy, agent)
+
+    strategy = 'AStar'
     agent = solve(strategy, puzzle)
     print(strategy, agent)
